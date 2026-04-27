@@ -2,7 +2,7 @@
 
 面向中国新高考 `3+1+2` 模式的高中教务管理系统，覆盖学生、教师、行政班、教学班、选科组合、排课、晚自习、考试成绩、数据看板、审计日志、权限控制、备份恢复和生产部署流程。
 
-本项目已经完成一轮企业级基础建设：数据库迁移、权限矩阵、审计告警、多租户隔离、前端工程化、自动化测试、Docker 部署、灾备/灰度/回滚/容量压测文档均已落地。发布到 GitHub 前请先阅读 [发布到 GitHub 指南](docs/PUBLISH_TO_GITHUB.md)。
+本项目已经完成一轮企业级基础建设：数据库迁移、权限矩阵、审计告警、多租户隔离、前端工程化、自动化测试、Docker 部署、灾备/灰度/回滚/容量压测文档均已落地。
 
 ## 目录
 
@@ -21,7 +21,6 @@
 - [数据库迁移](#数据库迁移)
 - [测试和上线检查](#测试和上线检查)
 - [项目结构](#项目结构)
-- [发布到 GitHub](#发布到-github)
 
 ## 项目定位
 
@@ -500,19 +499,6 @@ SMS_WEBHOOK_TOKEN=replace-with-sms-token
 SMS_ACCOUNT_NOTIFY_ENABLED=true
 ```
 
-## GitHub 发布注意事项
-
-本仓库应提交源码、迁移、文档、Docker 配置和前端构建产物，不应提交以下内容：
-
-- `.env`、`.env.production`、任何真实密钥文件。
-- `node_modules/`
-- `backups/`
-- `reports/`
-- `logs/`
-- `server.out.log`、`server.err.log`
-
-当前 `.gitignore` 和 `.dockerignore` 已排除这些文件。发布步骤见 [docs/PUBLISH_TO_GITHUB.md](docs/PUBLISH_TO_GITHUB.md)。
-
 ## 项目结构
 
 ```text
@@ -571,7 +557,6 @@ docs/
   DEPLOYMENT.md
   ENTERPRISE_ROADMAP.md
   PERMISSION_MATRIX.md
-  PUBLISH_TO_GITHUB.md
   RELEASE_OPERATIONS.md
 
 ops/
@@ -586,7 +571,6 @@ ops/
 - [权限矩阵](docs/PERMISSION_MATRIX.md)
 - [企业级演进路线](docs/ENTERPRISE_ROADMAP.md)
 - [灾备、灰度、回滚与容量压测](docs/RELEASE_OPERATIONS.md)
-- [发布到 GitHub 指南](docs/PUBLISH_TO_GITHUB.md)
 
 ## 许可
 
