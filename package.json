@@ -1,0 +1,51 @@
+{
+  "name": "fides-gaokao-academic-system",
+  "version": "1.0.0",
+  "description": "中国新高考高中教务系统",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "npm run frontend:build && node src/server.js",
+    "frontend:build": "node scripts/build-frontend.js",
+    "frontend:watch": "node scripts/build-frontend.js --watch",
+    "frontend:check": "tsc -p frontend/tsconfig.json",
+    "watch": "npm run frontend:build && node --watch src/server.js",
+    "start": "node src/server.js",
+    "db:init": "node scripts/init-db.js",
+    "db:migrate": "node scripts/migrate.js up",
+    "db:migrate:status": "node scripts/migrate.js status",
+    "db:migrate:check": "node scripts/migration-policy.js",
+    "db:migrate:baseline": "node scripts/migrate.js baseline",
+    "db:migrate:down": "node scripts/migrate.js down",
+    "db:backup": "node scripts/db-backup.js backup",
+    "db:restore": "node scripts/db-backup.js restore",
+    "db:restore:drill": "node scripts/db-backup.js drill",
+    "ops:capacity": "node scripts/capacity-test.js",
+    "ops:release-check": "node scripts/release-check.js",
+    "test": "npm run test:api",
+    "test:api": "node tests/api.test.js",
+    "check": "npm run frontend:check && node --check src/server.js && node --check src/schema.js && node --check src/config.js && node --check src/migrator.js && node --check src/audit.js && node --check src/bulk-excel.js && node --check src/identity.js && node --check src/sms.js && node --check src/permissions.js && node --check scripts/init-db.js && node --check scripts/migrate.js && node --check scripts/migration-policy.js && node --check scripts/db-backup.js && node --check scripts/capacity-test.js && node --check scripts/release-check.js && node --check scripts/build-frontend.js && node --check public/app.js && node --check tests/api.test.js && node --check migrations/202604240001_initial_schema.js && node --check migrations/202604240002_user_accounts_password_policy.js && node --check migrations/202604240003_audit_logs.js && node --check migrations/202604240004_audit_alerts.js && node --check migrations/202604250001_audit_operations_monitoring.js && node --check migrations/202604260001_timetable_scheduling.js && node --check migrations/202604260002_multi_org_isolation.js && node --check migrations/202604260003_identity_sms_notifications.js && node --check migrations/202604260004_teacher_duties.js",
+    "ci": "npm run frontend:build && npm run check && npm run db:migrate && npm run db:migrate:check && npm run test:api"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "compression": "^1.8.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "exceljs": "^4.4.0",
+    "express": "^4.21.2",
+    "express-rate-limit": "^8.4.0",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "mysql2": "^3.11.5",
+    "pino": "^10.3.1",
+    "pino-http": "^11.0.0",
+    "xlsx": "^0.18.5",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.0",
+    "typescript": "^6.0.3"
+  }
+}

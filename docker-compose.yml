@@ -1,0 +1,71 @@
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      APP_NAME: fides-gaokao-academic-system
+      APP_VERSION: 1.0.0
+      PORT: 3000
+      BODY_LIMIT: 2mb
+      TRUST_PROXY: "true"
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_USER: fides_app
+      DB_PASSWORD: ${DB_PASSWORD:?DB_PASSWORD is required}
+      DB_NAME: fides_gaokao
+      DB_AUTO_CREATE: "false"
+      DB_CONNECTION_LIMIT: 20
+      JWT_SECRET: ${JWT_SECRET:?JWT_SECRET is required}
+      JWT_EXPIRES_IN: 8h
+      CORS_ORIGINS: ${CORS_ORIGINS:?CORS_ORIGINS is required}
+      RATE_LIMIT_WINDOW_MS: 900000
+      RATE_LIMIT_MAX: 300
+      AUTH_RATE_LIMIT_MAX: 20
+      ADMIN_INITIAL_PASSWORD: ${ADMIN_INITIAL_PASSWORD:-}
+      AUDIT_EVENT_LOG_ENABLED: "true"
+      AUDIT_SIEM_WEBHOOK_URL: ${AUDIT_SIEM_WEBHOOK_URL:-}
+      AUDIT_SIEM_WEBHOOK_TOKEN: ${AUDIT_SIEM_WEBHOOK_TOKEN:-}
+      AUDIT_ALERTS_ENABLED: "true"
+      AUDIT_ALERT_WEBHOOK_URL: ${AUDIT_ALERT_WEBHOOK_URL:-}
+      AUDIT_ALERT_WEBHOOK_TOKEN: ${AUDIT_ALERT_WEBHOOK_TOKEN:-}
+      AUDIT_FAILED_LOGIN_WINDOW_MS: 900000
+      AUDIT_FAILED_LOGIN_THRESHOLD: 5
+      AUDIT_ACCOUNT_RESET_WINDOW_MS: 900000
+      AUDIT_ACCOUNT_RESET_THRESHOLD: 3
+      AUDIT_NEW_IP_LOOKBACK_DAYS: 90
+      AUDIT_SLOW_API_ENABLED: "true"
+      AUDIT_SLOW_API_THRESHOLD_MS: 1500
+      LOG_LEVEL: info
+    depends_on:
+      mysql:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/health/ready').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+
+  mysql:
+    image: mysql:8.4
+    restart: unless-stopped
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?MYSQL_ROOT_PASSWORD is required}
+      MYSQL_DATABASE: fides_gaokao
+      MYSQL_USER: fides_app
+      MYSQL_PASSWORD: ${DB_PASSWORD:?DB_PASSWORD is required}
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -uroot -p$${MYSQL_ROOT_PASSWORD} --silent"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+volumes:
+  mysql_data:
