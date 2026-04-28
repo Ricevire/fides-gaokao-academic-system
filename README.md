@@ -473,6 +473,17 @@ npm run db:migrate:check
 
 ## 测试和上线检查
 
+## Demo Accounts
+
+| Role | Username | Password |
+| --- | --- | --- |
+| Admin | admin | Admin@12345678 |
+| Teacher | teacher_demo | Teacher@12345678 |
+| Student | student_demo | Student@12345678 |
+
+> Demo accounts are only used for local development and project preview.
+> Please initialize the database first, then check the generated demo accounts in the seed data or documentation.
+
 上线前至少执行：
 
 ```powershell
