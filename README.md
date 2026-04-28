@@ -13,6 +13,7 @@
 > Demo screenshots coming soon.
 
 # 中国新高考高中教务系统
+![CI](https://github.com/Ricevire/fides-gaokao-academic-system/actions/workflows/ci.yml/badge.svg)
 
 面向中国新高考 `3+1+2` 模式的高中教务管理系统，覆盖学生、教师、行政班、教学班、选科组合、排课、晚自习、考试成绩、数据看板、审计日志、权限控制、备份恢复和生产部署流程。
 
