@@ -92,6 +92,24 @@
 - 审计告警覆盖异常 IP 登录、高频失败登录、账号重置高频操作、慢接口。
 - 审计事件可通过 Webhook 接入集中日志平台或 SIEM。
 
+## Screenshots
+
+### Login
+
+![Login](docs/images/login.png)
+
+### Dashboard
+
+![Dashboard](docs/images/dashboard.png)
+
+### Subject Combination
+
+![Subject Combination](docs/images/subject-combination.png)
+
+### Score Ranking
+
+![Score Ranking](docs/images/score-ranking.png)
+
 ## 技术栈
 
 | 层级 | 技术 |
