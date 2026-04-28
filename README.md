@@ -124,17 +124,16 @@
 
 ## 技术栈
 
-| 层级 | 技术 |
+| Layer | Technology |
 | --- | --- |
-| 后端 | Node.js 22、Express、mysql2 |
-| 前端 | TypeScript、esbuild、原生 HTML/CSS、内部 UI 组件函数 |
-| 数据库 | MySQL 8.x / 8.4 |
-| 安全 | Helmet、CORS、express-rate-limit、Zod 校验 |
-| 日志 | Pino JSON 日志、Pino HTTP |
-| 批量导入 | ExcelJS |
-| 部署 | Docker、Docker Compose、Nginx/负载均衡 |
-| 测试 | Node.js test runner、隔离测试库 |
-
+| Backend | Node.js 22, Express, mysql2 |
+| Frontend | TypeScript, esbuild, HTML, CSS |
+| Database | MySQL 8.x / 8.4 |
+| Security | Helmet, CORS, express-rate-limit, Zod |
+| Logging | Pino, Pino HTTP, x-request-id |
+| Import / Export | ExcelJS |
+| Deployment | Docker, Docker Compose, Nginx |
+| Testing | Node.js test runner, isolated test database |
 ## 运行要求
 
 ### 本地开发
