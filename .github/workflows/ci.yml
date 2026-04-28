@@ -17,8 +17,6 @@ jobs:
         env:
           MYSQL_ROOT_PASSWORD: root_password
           MYSQL_DATABASE: fides_gaokao_test
-          MYSQL_USER: fides_app
-          MYSQL_PASSWORD: fides_password
         ports:
           - 3306:3306
         options: >-
@@ -37,10 +35,10 @@ jobs:
 
       DB_HOST: 127.0.0.1
       DB_PORT: 3306
-      DB_USER: fides_app
-      DB_PASSWORD: fides_password
+      DB_USER: root
+      DB_PASSWORD: root_password
       DB_NAME: fides_gaokao_test
-      DB_AUTO_CREATE: "false"
+      DB_AUTO_CREATE: "true"
       DB_CONNECTION_LIMIT: 10
 
       JWT_SECRET: github-actions-ci-secret-at-least-32-characters
