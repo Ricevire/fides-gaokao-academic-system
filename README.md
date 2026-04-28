@@ -1,3 +1,17 @@
+# Fides Gaokao Academic System
+
+> 中国新高考 `3+1+2` 高中教务系统  
+> 面向学生、教师、班主任、教务管理员的 Web 管理系统。
+
+![Node.js](https://img.shields.io/badge/Node.js-22-339933?style=flat-square&logo=nodedotjs)
+![MySQL](https://img.shields.io/badge/MySQL-8.x-4479A1?style=flat-square&logo=mysql)
+![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=flat-square&logo=docker)
+![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)
+
+## Preview
+
+> Demo screenshots coming soon.
+
 # 中国新高考高中教务系统
 
 面向中国新高考 `3+1+2` 模式的高中教务管理系统，覆盖学生、教师、行政班、教学班、选科组合、排课、晚自习、考试成绩、数据看板、审计日志、权限控制、备份恢复和生产部署流程。
