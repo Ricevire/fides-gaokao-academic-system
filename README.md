@@ -3,19 +3,30 @@
 > 中国新高考 `3+1+2` 高中教务系统  
 > 面向学生、教师、班主任、教务管理员的 Web 管理系统。
 
+![CI](https://github.com/Ricevire/fides-gaokao-academic-system/actions/workflows/ci.yml/badge.svg)
 ![Node.js](https://img.shields.io/badge/Node.js-22-339933?style=flat-square&logo=nodedotjs)
 ![MySQL](https://img.shields.io/badge/MySQL-8.x-4479A1?style=flat-square&logo=mysql)
 ![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=flat-square&logo=docker)
-![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)
+![Release](https://img.shields.io/github/v/release/Ricevire/fides-gaokao-academic-system?include_prereleases&style=flat-square)
+![License](https://img.shields.io/github/license/Ricevire/fides-gaokao-academic-system?style=flat-square)
 
 ## Preview
 
-> Demo screenshots coming soon.
+![Dashboard](docs/images/dashboard.png)
 
-# 中国新高考高中教务系统
-![CI](https://github.com/Ricevire/fides-gaokao-academic-system/actions/workflows/ci.yml/badge.svg)
+## Why this project?
 
-面向中国新高考 `3+1+2` 模式的高中教务管理系统，覆盖学生、教师、行政班、教学班、选科组合、排课、晚自习、考试成绩、数据看板、审计日志、权限控制、备份恢复和生产部署流程。
+`Fides Gaokao Academic System` 是一个围绕中国新高考 `3+1+2` 场景设计的高中教务系统。
+
+它不仅是普通的学生管理系统，还覆盖：
+
+- 行政班 + 教学班
+- 新高考选科组合
+- 教师多职务
+- 成绩排名与趋势分析
+- 课表与晚自习
+- 审计日志与权限控制
+- Docker Compose 部署
 
 本项目已经完成一轮企业级基础建设：数据库迁移、权限矩阵、审计告警、多租户隔离、前端工程化、自动化测试、Docker 部署、灾备/灰度/回滚/容量压测文档均已落地。
 
